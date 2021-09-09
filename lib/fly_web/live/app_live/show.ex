@@ -77,6 +77,6 @@ defmodule FlyWeb.AppLive.Show do
       |> Enum.uniq_by(&Map.get(&1, "version"))
       |> length
 
-    count == 1
+    count > 1
   end
 end
