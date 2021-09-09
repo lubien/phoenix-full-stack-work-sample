@@ -70,4 +70,13 @@ defmodule FlyWeb.AppLive.Show do
   def preview_url(app) do
     "https://#{app["name"]}.fly.dev"
   end
+
+  def has_multiple_versions?(app) do
+    count =
+      app["allocations"]
+      |> Enum.uniq_by(&Map.get(&1, "version"))
+      |> length
+
+    count == 1
+  end
 end

@@ -310,6 +310,7 @@
                                 </tr>
                               </thead>
                               <tbody class="bg-white divide-y divide-gray-200">
+                                <% multiple_versions? = has_multiple_versions?(@app) %>
                                 <%= for allocation <- @app["allocations"] do %>
                                   <tr>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
@@ -319,7 +320,7 @@
                                       <%= allocation["taskName"] %>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                      <%= allocation["version"] %>
+                                      <%= allocation["version"] %> <%= if multiple_versions? and allocation["latestVersion"], do: "⬆️", else: "" %>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                       <%= allocation["region"] %>
