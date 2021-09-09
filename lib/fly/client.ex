@@ -180,6 +180,7 @@ defmodule Fly.Client do
         app(name: $name) {
           id
           name
+          version
           organization {
             id
             slug
@@ -209,6 +210,17 @@ defmodule Fly.Client do
                 avatarUrl
               }
             }
+          }
+          deploymentStatus {
+            id
+            status
+            version
+            description
+            placedCount
+            promoted
+            desiredCount
+            healthyCount
+            unhealthyCount
           }
           allocations(showCompleted: false) {
             id
