@@ -32,6 +32,11 @@
           <div class="flex-1 min-w-0">
             <h2 class="text-2xl font-bold leading-7 text-white-900 sm:text-3xl sm:truncate">
               <%= @app_name %>
+              <%= if @app["version"] do %>
+                <span class="text-sm text-gray-500">
+                  v<%= @app["version"] %>
+                </span>
+              <% end %>
               <p class={"px-2 mx-4 inline-flex text-xs leading-5 font-semibold rounded-full #{status_bg_color(@app)} #{status_text_color(@app)}"}>
                 <%= @app["status"] %>
               </p>
