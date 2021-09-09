@@ -67,7 +67,7 @@
           </div>
       </div>
       
-      <%= if not is_nil(@app["version"]) and @app["version"] == @app["deploymentStatus"]["version"] and @app["deploymentStatus"]["status"] != "cancelled" do %>
+      <%= if can_show_deploy?(@app) do %>
         <div class="max-w-2xl mx-auto sm:px-6">
           <section aria-labelledby="deployment-status" class="bg-white shadow overflow-hidden sm:rounded-lg">
             <div class="px-4 py-5 sm:px-6">

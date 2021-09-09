@@ -71,6 +71,12 @@ defmodule FlyWeb.AppLive.Show do
     "https://#{app["name"]}.fly.dev"
   end
 
+  def can_show_deploy?(app) do
+    not is_nil(app["version"]) and
+    app["version"] == app["deploymentStatus"]["version"] and
+    app["deploymentStatus"]["status"] != "cancelled"
+  end
+
   def has_multiple_versions?(app) do
     count =
       app["allocations"]
